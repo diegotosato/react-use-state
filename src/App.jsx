@@ -37,7 +37,6 @@ function App() {
 
 
 
-
   return (
     <>
       <header className="bg-body-tertiary p-4">
@@ -49,20 +48,24 @@ function App() {
 
           {
             languages.map(item => (
-              <button className="btn btn-primary me-3">{item.title}</button>
+              <button key={item.id} className="btn btn-primary me-3">{item.title}</button>
+            ))
+          }
+
+          {
+            languages.map(itemCard => (
+              <div key={itemCard.id} className="card mt-4 p-3">
+                <h3>{itemCard.title}</h3>
+                <p className="m-0">{itemCard.description}</p>
+              </div>
             ))
           }
 
 
 
-
-          <div className="card mt-4 p-3">
-            <h3>{languages[0].title}</h3>
-            <p className="m-0">{languages[0].description}</p>
-          </div>
         </div>
 
-      </main>
+      </main >
 
     </>
   )
