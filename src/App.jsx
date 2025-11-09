@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from './assets/Components/Button'
 
 function App() {
 
@@ -63,9 +64,7 @@ function App() {
 
           {
             languages.map(item => (
-              <button onClick={() => handleClick(item.id)} key={item.id} className="btn btn-primary me-3">
-                {item.title}
-              </button>
+              <Button key={item.id} handle={() => handleClick(item.id)} title={item.title} />
             ))
           }
 
