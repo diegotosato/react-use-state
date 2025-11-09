@@ -34,6 +34,10 @@ function App() {
   ];
 
 
+
+
+
+
   return (
     <>
       <header className="bg-body-tertiary p-4">
@@ -52,10 +56,9 @@ function App() {
 
 
 
-
           <div className="card mt-4 p-3">
-            <h3>Title</h3>
-            <p className="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, incidunt!</p>
+            <h3>{languages[0].title}</h3>
+            <p className="m-0">{languages[0].description}</p>
           </div>
         </div>
 
