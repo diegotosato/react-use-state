@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 function App() {
+
+
+  const [active, setActive] = useState(0)
+
+  function display(id) {
+    if (active === id) {
+      setActive(0)
+    } else {
+      setActive(id)
+    }
+  }
 
   const languages = [
     {
@@ -48,19 +61,32 @@ function App() {
 
           {
             languages.map(item => (
-              <button key={item.id} className="btn btn-primary me-3">{item.title}</button>
+              <button onClick={() => display(item.id)} key={item.id} className="btn btn-primary me-3">{item.title}</button>
             ))
           }
 
-          {
+          {/* {
             languages.map(itemCard => (
               <div key={itemCard.id} className="card mt-4 p-3">
                 <h3>{itemCard.title}</h3>
                 <p className="m-0">{itemCard.description}</p>
               </div>
             ))
+          } */}
+
+          {
+            active === languages[0].id &&
+            <div key={languages[0].id} className="card mt-4 p-3">
+              <h3>{languages[0].title}</h3>
+              <p className="m-0">{languages[0].description}</p>
+            </div>
           }
 
+
+          {/* <div key={languages[0].id} className="card mt-4 p-3">
+            <h3>{languages[0].title}</h3>
+            <p className="m-0">{languages[0].description}</p>
+          </div> */}
 
 
         </div>
