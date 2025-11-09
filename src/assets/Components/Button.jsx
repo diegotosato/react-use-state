@@ -1,8 +1,8 @@
-export default function Button({ handle, title }) {
+export default function Button({ handle, item }) {
     return (
         <>
             <button onClick={handle} className="btn btn-primary me-3">
-                {title}
+                {item.title}
             </button>
         </>
     )

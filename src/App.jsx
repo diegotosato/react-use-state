@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from './assets/Components/Button'
+import Card from './assets/Components/Card'
 
 function App() {
 
@@ -64,7 +65,7 @@ function App() {
 
           {
             languages.map(item => (
-              <Button key={item.id} handle={() => handleClick(item.id)} title={item.title} />
+              <Button key={item.id} handle={() => handleClick(item.id)} item={item} />
             ))
           }
 
@@ -74,21 +75,12 @@ function App() {
 
             {
               languages.map(item => (
-                <div key={item.id} className="card-content">
-                  {active === item.id && <>
-                    <h3>{item.title}</h3>
-                    <p className="m-0">{item.description}</p>
-                  </>}
-
-                </div>
+                <Card key={item.id} active={active} item={item} />
               ))
             }
 
 
-            {active === 0 && <>
-
-              <p className="m-0">Nessun linguaggio selezionato</p>
-            </>}
+            {active === 0 && <p className="m-0">Nessun linguaggio selezionato</p>}
 
 
           </div>
