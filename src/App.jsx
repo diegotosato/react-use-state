@@ -36,7 +36,30 @@ function App() {
 
   return (
     <>
+      <header className="bg-body-tertiary p-4">
+        <h1>Learn Web Development</h1>
+      </header>
+      <main className="mt-4">
+        <div className="container">
 
+
+          {
+            languages.map(item => (
+              <button className="btn btn-primary me-3">{item.title}</button>
+            ))
+          }
+
+
+
+
+
+          <div className="card mt-4 p-3">
+            <h3>Title</h3>
+            <p className="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, incidunt!</p>
+          </div>
+        </div>
+
+      </main>
 
     </>
   )
