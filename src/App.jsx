@@ -60,35 +60,41 @@ function App() {
       <main className="mt-4">
         <div className="container">
 
-          <div className="buttons-group">
+
+          {
+            languages.map(item => (
+              <button onClick={() => handleClick(item.id)} key={item.id} className="btn btn-primary me-3">
+                {item.title}
+              </button>
+            ))
+          }
+
+
+          <div className="card mt-4 p-3">
+
+
             {
               languages.map(item => (
-                <button onClick={() => handleClick(item.id)} key={item.id} className="btn btn-primary me-3">
-                  {item.title}
-                </button>
+                <div key={item.id} className="card-content">
+                  {active === item.id && <>
+                    <h3>{item.title}</h3>
+                    <p className="m-0">{item.description}</p>
+                  </>}
+
+                </div>
               ))
             }
 
 
-            <div className="card mt-4 p-3">
-              {
-                languages.map(item => (
-                  <div key={item.id} className="card-content">
-                    {active === item.id && <>
-                      <h3>{item.title}</h3>
-                      <p className="m-0">{item.description}</p>
-                    </>}
+            {active === 0 && <>
 
-                  </div>
-                ))
-              }
-              {active === 0 && <>
+              <p className="m-0">Nessun linguaggio selezionato</p>
+            </>}
 
-                <p className="m-0">Nessun linguaggio selezionato</p>
-              </>}
-            </div>
 
           </div>
+
+
 
 
 
