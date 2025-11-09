@@ -3,14 +3,16 @@ import { useState } from "react";
 function App() {
 
 
-  const [active, setActive] = useState(1)
+  const [active, setActive] = useState(0)
 
-  function CreateMarkup(props) {
-    return <div className="card mt-4 p-3">
-      <h3>{props.title}</h3>
-      <p className="m-0">{props.description}</p>
-    </div>
+  function handleClick(id) {
+    if (active === id) {
+      setActive(0)
+    } else {
+      setActive(id)
+    }
   }
+
 
 
   const languages = [
@@ -59,23 +61,28 @@ function App() {
         <div className="container">
 
 
-          {
+          {/* {
             languages.map(item => (
-              <button key={item.id} className="btn btn-primary me-3">{item.title}</button>
+              <button onClick={() => handleClick(item.id)} key={item.id} className="btn btn-primary me-3">
+                {item.title}
+              </button>
             ))
+          } */}
+
+          <button onClick={() => handleClick(languages[0].id)} className="btn btn-primary me-3">
+            HTML
+          </button>
+
+
+
+
+          {active === languages[0].id &&
+
+            <div className="card mt-4 p-3">
+              <h3>{languages[0].title}</h3>
+              <p className="m-0">{languages[0].description}</p>
+            </div>
           }
-
-
-          <CreateMarkup title={languages[0].title} description={languages[0].description} />
-
-
-
-
-
-          {/* <div className="card mt-4 p-3">
-            <h3>AA</h3>
-            <p className="m-0">AA</p>
-          </div> */}
 
 
         </div>
